@@ -4,42 +4,6 @@
 
 using namespace std;
 
-// Function declarations
-void writeToFile(const string& filename);  // Writes data to a file
-void readFromFile(const string& filename); // Reads data from a file
-void appendToFile(const string& filename); // Appends data to a file
-
-int main() {
-    string filename = "example.txt";  // File we'll be working with
-    int choice;
-
-    // Main menu loop
-    do {
-        cout << "1. Write to file\n2. Read from file\n3. Append to file\n4. Exit\nEnter your choice: ";
-        cin >> choice;
-        cin.ignore();  // Clear the input buffer
-
-        switch (choice) {
-            case 1:
-                writeToFile(filename);  // Write data to the file
-                break;
-            case 2:
-                readFromFile(filename);  // Read data from the file
-                break;
-            case 3:
-                appendToFile(filename);  // Append data to the file
-                break;
-            case 4:
-                cout << "Exiting program. Goodbye!" << endl;  // Exit the program
-                break;
-            default:
-                cout << "Invalid choice. Please try again." << endl;  // Handle invalid input
-        }
-    } while (choice != 4);  // Keep running until the user chooses to exit
-
-    return 0;
-}
-
 // Writes data to a file
 void writeToFile(const string& filename) {
     ofstream file(filename);  // Open the file for writing
@@ -84,3 +48,35 @@ void appendToFile(const string& filename) {
         cerr << "Unable to open file for appending." << endl;  // Error if file can't be opened
     }
 }
+
+int main() {
+    string filename = "example.txt";  // File we'll be working with
+    int choice;
+
+    // Main menu loop
+    do {
+        cout << "1. Write to file\n2. Read from file\n3. Append to file\n4. Exit\nEnter your choice: ";
+        cin >> choice;
+        cin.ignore();  // Clear the input buffer
+
+        switch (choice) {
+            case 1:
+                writeToFile(filename);  // Write data to the file
+                break;
+            case 2:
+                readFromFile(filename);  // Read data from the file
+                break;
+            case 3:
+                appendToFile(filename);  // Append data to the file
+                break;
+            case 4:
+                cout << "Exiting program. Goodbye!" << endl;  // Exit the program
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;  // Handle invalid input
+        }
+    } while (choice != 4);  // Keep running until the user chooses to exit
+
+    return 0;
+}
+
